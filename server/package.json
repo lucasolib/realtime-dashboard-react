@@ -1,0 +1,15 @@
+{
+  "name": "realtime-dashboard-server",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Servidor Node.js para simulação de dados em tempo real via Socket.IO.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  }
+}
