@@ -6,35 +6,21 @@ const Dashboard: React.FC = () => {
   const { data, isConnected } = useRealtimeData();
   
   return (
-    <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-      <h1>Dashboard de Dados em Tempo Real</h1>
-      <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>
-        Status do Socket: {isConnected ? '🟢 CONECTADO' : '🔴 DESCONECTADO'}
+    <div className='min-h-screen bg-blue-500/20 sm:p-8'>
+      <h1 className='text-4xl mb-3 border-b pb-3'>Dashboard de Dados em Tempo Real</h1>
+      <p className={`text-xl font-semibold rounded-full ${
+    isConnected ? 'text-green-800 bg-green-100' : 'text-red-800 bg-red-100'
+  } px-4 py-2 inline-block transition-all duration-300`}
+>
+        Status do Socket: {isConnected ? '🟢 Conectado' : '🔴 Desconectado'}
       </p>
       
       {/* Container para o Gráfico */}
-      <div style={{ 
-          marginTop: '30px', 
-          boxShadow: '0 4px 8px rgba(0,0,0,0.1)', 
-          borderRadius: '8px',
-          padding: '20px',
-          backgroundColor: '#fff' 
-      }}>
+      <div className='px-2 py-6 mt-3 rounded-xl shadow-xl bg-orange-500/30'>
          <h2>Flutuação Métrica A e B</h2>
          {/* Passamos o array de dados para o componente de gráfico */}
          <RealtimeLineChart data={data} />
       </div>
-      
-      {/* Exibição da Última Atualização (KPI simples) */}
-      <div style={{ marginTop: '30px', padding: '15px', borderLeft: '4px solid #007bff' }}>
-        <h3>KPIs Recebidos</h3>
-        {data.length > 0 ? (
-          <p>Último Contador: **{data[data.length - 1].count}** | Métrica C: **{data[data.length - 1].metricC}**</p>
-        ) : (
-          <p>Aguardando primeiro dado...</p>
-        )}
-      </div>
-      
     </div>
   );
 };
