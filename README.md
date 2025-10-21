@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+## ⚡ Dashboard de dados em tempo real
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+&nbsp; &nbsp; Este é um projeto Full-Stack de alto desempenho que demonstra o consumo e a visualização de dados em tempo real via WebSockets. Ele foi construído com uma arquitetura moderna de monorepo leve, garantindo um fluxo de trabalho eficiente e código escalável.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Stack utilizada
 
-## React Compiler
+**Front-end:** React, Typescript, TailwindCSS, Recharts
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+**Back-end:** Node, Express, Socket.IO
 
-## Expanding the ESLint configuration
+## ✨ Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Streaming de Dados E2E**: Servidor Node.js simula dados de séries temporais com flutuação e os envia a cada 2 segundos via WebSockets.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Gráfico Dinâmico "Rolling"**: O gráfico Recharts foi configurado para rolar horizontalmente, sempre exibindo a janela de tempo mais recente, criando um efeito visual suave e profissional.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Design Clean**: Layout responsivo construído com Tailwind CSS, utilizando um fundo bg-gray-50 para contraste elegante com os cards de KPI.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Orquestração de Instalação**: O ambiente pode ser configurado com um único comando.
+## ⚙️ Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/lucasolib/realtime-dashboard-react
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Entre no diretório do projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+  cd realtime-dashboard-react
 ```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+
+
+## 🧪 Rodando os testes
+
+Para rodar os testes, rode o seguinte comando na pasta client
+
+```bash
+  npm run test
+```
+
+Para ver o coverage, rode o próximo comando.
+
+```bash
+  npm run coverage
+```
+## 📖 Aprendizados
+
+Existem ferramentas que podem acelerar muito o processo de programação, tal qual TailWind para estilização ou ReCharts para os gráficos. É muito importante você buscar e estudar as tecnologias antes do projeto para ter um código sólido e otimizado.
